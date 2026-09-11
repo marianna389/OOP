@@ -3,11 +3,12 @@ package ru.nsu.mkorovkina.task111;
 import java.util.Arrays;
 
 /**
- * Starts the sorting algorithm
+ * Starts the sorting algorithm.
  */
 public class Main {
     /**
-     * Performs sorting on the given array and outputs the result
+     * Performs sorting on the given array and outputs the result.
+     *
      * @param args command-line arguments (not used)
      */
     public static void main(String[] args) {

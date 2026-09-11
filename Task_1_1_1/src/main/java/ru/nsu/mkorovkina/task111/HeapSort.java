@@ -1,7 +1,7 @@
 package ru.nsu.mkorovkina.task111;
 
 /**
- * Sorts an array of integers in ascending order using heapsort
+ * Sorts an array of integers in ascending order using heapsort.
  */
 public class HeapSort {
     private static void createHeap(int[] arr) {
@@ -42,7 +42,8 @@ public class HeapSort {
     }
 
     /**
-     * Sorts the array
+     * Sorts the array.
+     *
      * @param arr array of integers to be sorted
      */
     public static void heapSort(int[] arr) {
