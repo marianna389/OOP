@@ -27,7 +27,8 @@ class DealerTest {
         Dealer dealer = new Dealer();
         dealer.addPlayerCard(new Card(Suit.SPADES, Rank.FIVE));
         dealer.addPlayerCard(new Card(Suit.CLUBS, Rank.EIGHT));
-        dealer.addPlayerCard(new Card(Suit.HEARTS, Rank.FOUR));
+        dealer.addPlayerCard(new Card(Suit.HEARTS, Rank.ACE));
+        dealer.addPlayerCard(new Card(Suit.HEARTS, Rank.THREE));
         Deck deck = new Deck();
         dealer.dealerRound(deck, person);
         assertFalse(dealer.overflow());
