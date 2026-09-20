@@ -1,10 +1,9 @@
 package ru.nsu.mkorovkina.task112;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Test;
-
 import java.io.ByteArrayInputStream;
 import java.util.NoSuchElementException;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Test;
 
 class MainTest {
 
@@ -14,7 +13,9 @@ class MainTest {
         System.setIn(new ByteArrayInputStream(input.getBytes()));
         try {
             Main.main(new String[] {});
-        } catch (NoSuchElementException expected) {}
+        } catch (NoSuchElementException expected) {
+            //game finished
+        }
     }
 
     @Test
@@ -23,7 +24,9 @@ class MainTest {
         System.setIn(new ByteArrayInputStream(input.getBytes()));
         try {
             Main.main(new String[] {});
-        } catch (NoSuchElementException expected) {}
+        } catch (NoSuchElementException expected) {
+            //game finished
+        }
     }
 
     @AfterEach
