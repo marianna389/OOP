@@ -26,7 +26,11 @@ public enum Rank {
         this.rank = rank;
     }
 
-    public String getRank() { return rank; }
+    public String getRank() {
+        return rank;
+    }
 
-    public int getRankValue() { return value; }
+    public int getRankValue() {
+        return value;
+    }
 }

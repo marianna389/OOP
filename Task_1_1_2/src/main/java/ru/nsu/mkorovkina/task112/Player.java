@@ -9,9 +9,9 @@ import java.util.List;
 public class Player {
     private final List<Card> playerCards = new ArrayList<>();
 
-    Player() {}
-
-    public void addPlayerCard(Card newCard) { playerCards.add(newCard); }
+    public void addPlayerCard(Card newCard) {
+        playerCards.add(newCard);
+    }
 
     /**
      * Calculates the score from the current cards.
@@ -77,11 +77,19 @@ public class Player {
         }
     }
 
-    public boolean overflow() { return getPlayerScore() > 21; }
+    public boolean overflow() {
+        return getPlayerScore() > 21;
+    }
 
-    public boolean blackJack() { return getPlayerScore() == 21; }
+    public boolean blackJack() {
+        return getPlayerScore() == 21;
+    }
 
-    public List<Card> getPlayerCards() { return playerCards; }
+    public List<Card> getPlayerCards() {
+        return playerCards;
+    }
 
-    public void clearPlayerCards() { playerCards.clear(); }
+    public void clearPlayerCards() {
+        playerCards.clear();
+    }
 }

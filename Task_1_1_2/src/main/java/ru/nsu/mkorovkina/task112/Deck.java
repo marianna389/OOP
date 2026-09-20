@@ -18,9 +18,15 @@ public class Deck {
         }
     }
 
-    public void shuffle() { Collections.shuffle(cards); }
+    public void shuffle() {
+        Collections.shuffle(cards);
+    }
 
-    public Card takeCard() { return cards.remove(cards.size() - 1); }
+    public Card takeCard() {
+        return cards.remove(cards.size() - 1);
+    }
 
-    public int getSize() { return cards.size(); }
+    public int getSize() {
+        return cards.size();
+    }
 }

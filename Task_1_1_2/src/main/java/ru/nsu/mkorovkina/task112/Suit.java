@@ -15,5 +15,7 @@ public enum Suit {
         this.name = name;
     }
 
-    public String getSuitName() { return name; }
+    public String getSuitName() {
+        return name;
+    }
 }

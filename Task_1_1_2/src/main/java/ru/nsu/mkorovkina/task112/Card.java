@@ -12,11 +12,17 @@ public class Card {
         this.cardRank = cardRank;
     }
 
-    public Suit getCardSuit() { return cardSuit; }
+    public Suit getCardSuit() {
+        return cardSuit;
+    }
 
-    public Rank getCardRank() { return cardRank; }
+    public Rank getCardRank() {
+        return cardRank;
+    }
 
-    public int getCardValue() { return cardRank.getRankValue(); }
+    public int getCardValue() {
+        return cardRank.getRankValue();
+    }
 
     /**
      * String representation of the card in the format: rank suit (value).
