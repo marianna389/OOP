@@ -8,63 +8,45 @@ import java.util.List;
  */
 public class Player {
     private final List<Card> playerCards = new ArrayList<>();
-
-    public void addPlayerCard(Card newCard) {
-        playerCards.add(newCard);
-    }
+    private int score = 0;
+    private int acesCount = 0;
+    private int acesToReduce = 0;
 
     /**
-     * Calculates the score from the current cards.
+     * Adds a card to the player and recalculates the score and the number of aces.
      *
-     * @return the score
+     * @param newCard the card that needs to be added
      */
-    public int getPlayerScore() {
-        int score = 0;
-        int acesCount = 0;
-        for (Card card : playerCards) {
-            if (card.getCardRank() == Rank.ACE) {
-                acesCount++;
-            }
-            score += card.getCardValue();
+    public void addPlayerCard(Card newCard) {
+        playerCards.add(newCard);
+        if (newCard.getCardRank() == Rank.ACE) {
+            acesCount++;
         }
-        while (acesCount > 0 && score > 21) {
-            score -= 10;
-            acesCount--;
-        }
-        return score;
-    }
-
-    private int acesCountToReduce() {
-        int score = 0;
-        int acesCount = 0;
-        int acesToReduce = 0;
-        for (Card card : playerCards) {
-            if (card.getCardRank() == Rank.ACE) {
-                acesCount++;
-            }
-            score += card.getCardValue();
-        }
+        score += newCard.getCardValue();
         while (acesCount > 0 && score > 21) {
             score -= 10;
             acesCount--;
             acesToReduce++;
         }
-        return acesToReduce;
+    }
+
+    public int getPlayerScore() {
+        return score;
     }
 
     /**
      * Prints the player's cards, showing reduced aces as 1.
      */
     public void printPlayerCards() {
-        int acesToReduce = acesCountToReduce();
         int size = playerCards.size();
         int count = 0;
+        int acesReduce = acesToReduce;
         System.out.print("[");
         for (Card card : playerCards) {
-            if (card.getCardRank() == Rank.ACE && acesToReduce > 0) {
+            if (card.getCardRank() == Rank.ACE && acesReduce > 0) {
                 System.out.print(card.getCardRank().getRank() + " "
-                        + card.getCardSuit().getSuitName()  + " (1)");
-                acesToReduce--;
+                        + card.getCardSuit().getSuitName() + " (1)");
+                acesReduce--;
             } else {
                 System.out.print(card.toString());
             }
@@ -75,21 +57,28 @@ public class Player {
             }
             count++;
         }
+        System.out.println(" => " + score);
     }
 
     public boolean overflow() {
-        return getPlayerScore() > 21;
+        return score > 21;
     }
 
     public boolean blackJack() {
-        return getPlayerScore() == 21;
+        return score == 21;
     }
 
-    public List<Card> getPlayerCards() {
-        return playerCards;
+    public Card getCard(int index) {
+        return playerCards.get(index);
     }
 
+    /**
+     * Clears the player's cards, score, and ace count before a new round.
+     */
     public void clearPlayerCards() {
         playerCards.clear();
+        score = 0;
+        acesCount = 0;
+        acesToReduce = 0;
     }
 }

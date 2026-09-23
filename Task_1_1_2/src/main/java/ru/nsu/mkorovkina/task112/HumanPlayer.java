@@ -29,8 +29,7 @@ public class HumanPlayer extends Player {
                 System.out.println("You revealed a card " + newCard);
                 System.out.print("  Your cards: ");
                 printPlayerCards();
-                System.out.println(" => " + getPlayerScore());
-                System.out.println("  Dealer's cards: [" + dealer.getPlayerCards().get(0)
+                System.out.println("  Dealer's cards: [" + dealer.getCard(0)
                         + ", <hidden card>]");
                 System.out.println();
                 if (overflow()) {

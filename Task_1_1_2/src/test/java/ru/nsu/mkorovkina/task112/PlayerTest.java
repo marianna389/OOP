@@ -33,6 +33,6 @@ class PlayerTest {
         player.addPlayerCard(new Card(Suit.CLUBS, Rank.KING));
         assertTrue(player.blackJack());
         player.clearPlayerCards();
-        assertEquals(0, player.getPlayerCards().size());
+        assertEquals(0, player.getPlayerScore());
     }
 }

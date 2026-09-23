@@ -22,10 +22,8 @@ public class Dealer extends Player {
             System.out.println("Dealer reveals a card " + newCard);
             System.out.print("  Your cards: ");
             person.printPlayerCards();
-            System.out.println(" => " + person.getPlayerScore());
             System.out.print("  Dealer's cards: ");
             printPlayerCards();
-            System.out.println(" => " + getPlayerScore());
             System.out.println();
         }
         return !overflow();
