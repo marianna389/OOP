@@ -110,21 +110,23 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addPlayerCard(ru.nsu.mkorovkina.task112.Card)" class="member-name-link">addPlayerCard</a><wbr>(<a href="Card.html" title="class in ru.nsu.mkorovkina.task112">Card</a>&nbsp;newCard)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Adds a card to the player and recalculates the score and the number of aces.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#blackJack()" class="member-name-link">blackJack</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#clearPlayerCards()" class="member-name-link">clearPlayerCards</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Card.html" title="class in ru.nsu.mkorovkina.task112">Card</a>&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getPlayerCards()" class="member-name-link">getPlayerCards</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Clears the player's cards, score, and ace count before a new round.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="Card.html" title="class in ru.nsu.mkorovkina.task112">Card</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getCard(int)" class="member-name-link">getCard</a><wbr>(int&nbsp;index)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getPlayerScore()" class="member-name-link">getPlayerScore</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Calculates the score from the current cards.</div>
-</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#overflow()" class="member-name-link">overflow</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
@@ -168,17 +170,17 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="addPlayerCard(ru.nsu.mkorovkina.task112.Card)">
 <h3>addPlayerCard</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addPlayerCard</span><wbr><span class="parameters">(<a href="Card.html" title="class in ru.nsu.mkorovkina.task112">Card</a>&nbsp;newCard)</span></div>
+<div class="block">Adds a card to the player and recalculates the score and the number of aces.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>newCard</code> - the card that needs to be added</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="getPlayerScore()">
 <h3>getPlayerScore</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getPlayerScore</span>()</div>
-<div class="block">Calculates the score from the current cards.</div>
-<dl class="notes">
-<dt>Returns:</dt>
-<dd>the score</dd>
-</dl>
 </section>
 </li>
 <li>
@@ -201,15 +203,16 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="getPlayerCards()">
-<h3>getPlayerCards</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Card.html" title="class in ru.nsu.mkorovkina.task112">Card</a>&gt;</span>&nbsp;<span class="element-name">getPlayerCards</span>()</div>
+<section class="detail" id="getCard(int)">
+<h3>getCard</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Card.html" title="class in ru.nsu.mkorovkina.task112">Card</a></span>&nbsp;<span class="element-name">getCard</span><wbr><span class="parameters">(int&nbsp;index)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="clearPlayerCards()">
 <h3>clearPlayerCards</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">clearPlayerCards</span>()</div>
+<div class="block">Clears the player's cards, score, and ace count before a new round.</div>
 </section>
 </li>
 </ul>
