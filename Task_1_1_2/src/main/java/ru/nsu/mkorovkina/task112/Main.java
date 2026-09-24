@@ -15,8 +15,9 @@ public class Main {
     }
 
     /**
+     * Starts a Blackjack game for testing with a mock deck.
      *
-     * @param deck
+     * @param deck the mock deck
      */
     public static void mainForTests(Deck deck) {
         new Game(deck).game();

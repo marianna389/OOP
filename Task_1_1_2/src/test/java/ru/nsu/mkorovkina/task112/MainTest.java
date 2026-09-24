@@ -1,14 +1,13 @@
 package ru.nsu.mkorovkina.task112;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.PrintStream;
-
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
@@ -82,8 +81,8 @@ class MainTest {
         assertTrue(output.contains("You lost the round! Score 0:2 in dealer's favor"));
         assertTrue(output.contains("Defeat :("));
         assertTrue(output.contains("You revealed a card Ace Spades (1)"));
-        assertTrue(output.contains("  Your cards: [Two Hearts (2), Five Spades (5), " +
-                "Ace Diamonds (11), Ace Spades (1)]"));
+        assertTrue(output.contains("  Your cards: [Two Hearts (2), Five Spades (5), "
+                + "Ace Diamonds (11), Ace Spades (1)]"));
     }
 
     @AfterEach

@@ -41,7 +41,7 @@ public class Player {
         int size = playerCards.size();
         int acesReduce = acesToReduce;
         int index = playerCards.indexOf(card);
-        for(int i = size - 1; i != index; i--) {
+        for (int i = size - 1; i != index; i--) {
             if (getCard(i).getCardRank() == Rank.ACE && acesReduce > 0) {
                 acesReduce--;
             }
