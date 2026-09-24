@@ -30,6 +30,30 @@ public class Player {
         }
     }
 
+    /**
+     * String representation of the card in the format: rank suit (value).
+     * Shows the value of reduced aces as (1).
+     *
+     * @param card the card to string
+     * @return a string describing the card
+     */
+    public String cardToString(Card card) {
+        int size = playerCards.size();
+        int acesReduce = acesToReduce;
+        int index = playerCards.indexOf(card);
+        for(int i = size - 1; i != index; i--) {
+            if (getCard(i).getCardRank() == Rank.ACE && acesReduce > 0) {
+                acesReduce--;
+            }
+        }
+        if (card.getCardRank() == Rank.ACE && acesReduce > 0) {
+            return String.format("%s %s (1)", card.getCardRank().getRank(),
+                    card.getCardSuit().getSuitName());
+        }
+        return String.format("%s %s (%d)", card.getCardRank().getRank(),
+                card.getCardSuit().getSuitName(), card.getCardValue());
+    }
+
     public int getPlayerScore() {
         return score;
     }
@@ -39,23 +63,14 @@ public class Player {
      */
     public void printPlayerCards() {
         int size = playerCards.size();
-        int count = 0;
-        int acesReduce = acesToReduce;
         System.out.print("[");
-        for (Card card : playerCards) {
-            if (card.getCardRank() == Rank.ACE && acesReduce > 0) {
-                System.out.print(card.getCardRank().getRank() + " "
-                        + card.getCardSuit().getSuitName() + " (1)");
-                acesReduce--;
-            } else {
-                System.out.print(card.toString());
-            }
-            if (count == size - 1) {
+        for (int i = 0; i < size; i++) {
+            System.out.print(cardToString(getCard(i)));
+            if (i == size - 1) {
                 System.out.print("]");
             } else {
                 System.out.print(", ");
             }
-            count++;
         }
         System.out.println(" => " + score);
     }

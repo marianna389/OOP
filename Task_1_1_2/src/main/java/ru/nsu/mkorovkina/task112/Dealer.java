@@ -19,7 +19,7 @@ public class Dealer extends Player {
         while (getPlayerScore() < 17) {
             Card newCard = deck.takeCard();
             addPlayerCard(newCard);
-            System.out.println("Dealer reveals a card " + newCard);
+            System.out.println("Dealer reveals a card " + cardToString(newCard));
             System.out.print("  Your cards: ");
             person.printPlayerCards();
             System.out.print("  Dealer's cards: ");

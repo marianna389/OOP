@@ -26,11 +26,11 @@ public class HumanPlayer extends Player {
             if (choice == 1) {
                 Card newCard = deck.takeCard();
                 addPlayerCard(newCard);
-                System.out.println("You revealed a card " + newCard);
+                System.out.println("You revealed a card " + cardToString(newCard));
                 System.out.print("  Your cards: ");
                 printPlayerCards();
-                System.out.println("  Dealer's cards: [" + dealer.getCard(0)
-                        + ", <hidden card>]");
+                System.out.printf("  Dealer's cards: [%s, <hidden card>]%n",
+                        dealer.cardToString(dealer.getCard(0)));
                 System.out.println();
                 if (overflow()) {
                     return false;

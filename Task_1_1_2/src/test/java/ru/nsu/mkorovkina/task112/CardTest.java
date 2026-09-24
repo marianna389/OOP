@@ -21,9 +21,4 @@ class CardTest {
     void getCardValue() {
         assertEquals(10, card.getCardValue());
     }
-
-    @Test
-    void testToString() {
-        assertEquals("Jack Diamonds (10)", card.toString());
-    }
 }

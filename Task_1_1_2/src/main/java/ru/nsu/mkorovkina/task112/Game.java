@@ -15,8 +15,12 @@ public class Game {
     private int round = 1;
 
     Game() {
-        this.deck = new Deck();
+        this(new Deck());
         this.deck.shuffle();
+    }
+
+    Game(Deck deck) {
+        this.deck = deck;
         this.score = new Score();
         this.person = new HumanPlayer();
         this.dealer = new Dealer();
@@ -45,8 +49,8 @@ public class Game {
             System.out.println("Dealer dealt cards");
             System.out.print("  Your cards: ");
             person.printPlayerCards();
-            System.out.println("  Dealer's cards: [" + dealer.getCard(0)
-                    + ", <hidden card>]");
+            System.out.printf("  Dealer's cards: [%s, <hidden card>]%n",
+                    dealer.cardToString(dealer.getCard(0)));
             System.out.println();
             if (person.blackJack() && dealer.blackJack()) {
                 System.out.println("Both you and the dealer have blackjack!");
@@ -81,7 +85,7 @@ public class Game {
                 System.out.println("Dealer's turn");
                 System.out.println("-------");
                 System.out.println("Dealer reveals the hidden card "
-                        + dealer.getCard(1));
+                        + dealer.cardToString(dealer.getCard(1)));
                 System.out.print("  Your cards: ");
                 person.printPlayerCards();
                 System.out.print("  Dealer's cards: ");

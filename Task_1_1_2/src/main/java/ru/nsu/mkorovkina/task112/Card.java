@@ -23,15 +23,4 @@ public class Card {
     public int getCardValue() {
         return cardRank.getRankValue();
     }
-
-    /**
-     * String representation of the card in the format: rank suit (value).
-     *
-     * @return a string describing the card
-     */
-    @Override
-    public String toString() {
-        return getCardRank().getRank() + " " + getCardSuit().getSuitName()
-                + " (" + getCardValue() + ")";
-    }
 }

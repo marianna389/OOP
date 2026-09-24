@@ -13,4 +13,12 @@ public class Main {
         Game newGame = new Game();
         newGame.game();
     }
+
+    /**
+     *
+     * @param deck
+     */
+    public static void mainForTests(Deck deck) {
+        new Game(deck).game();
+    }
 }
