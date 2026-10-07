@@ -1,5 +1,7 @@
 package ru.nsu.mkorovkina.task113;
 
+import java.util.Map;
+
 /**
  * Subtraction of two mathematical expressions.
  */
@@ -13,15 +15,13 @@ public class Sub extends Expression {
     }
 
     /**
-     * Prints the subtraction of two expressions (exp-exp).
+     * Returns the subtraction of two expressions as a string.
+     *
+     * @return string in the format (exp-exp)
      */
     @Override
-    public void print() {
-        System.out.print("(");
-        arg1.print();
-        System.out.print("-");
-        arg2.print();
-        System.out.print(")");
+    public String toString() {
+        return String.format("(%s-%s)", arg1, arg2);
     }
 
     /**
@@ -39,11 +39,11 @@ public class Sub extends Expression {
     /**
      * Evaluates the value of the expression as difference between values of two sub-expressions.
      *
-     * @param varAssignment assignment of values to all variables
+     * @param assignment assignment of values to all variables
      * @return result of the evaluation
      */
     @Override
-    public int eval(String varAssignment) {
-        return arg1.eval(varAssignment) - arg2.eval(varAssignment);
+    public int eval(Map<String, Integer> assignment) {
+        return arg1.eval(assignment) - arg2.eval(assignment);
     }
 }

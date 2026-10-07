@@ -1,5 +1,7 @@
 package ru.nsu.mkorovkina.task113;
 
+import java.util.Map;
+
 /**
  * Constant.
  */
@@ -11,11 +13,13 @@ public class Number extends Expression {
     }
 
     /**
-     * Prints the constant value.
+     * Converts the constant's value into a string.
+     *
+     * @return string containing the value
      */
     @Override
-    public void print() {
-        System.out.print(value);
+    public String toString() {
+        return Integer.toString(value);
     }
 
     /**
@@ -32,11 +36,11 @@ public class Number extends Expression {
     /**
      * Evaluates the value of the constant; it does not depend on the variable assignment.
      *
-     * @param varAssignment assignment of values to all variables
+     * @param assignment assignment of values to all variables
      * @return constant value
      */
     @Override
-    public int eval(String varAssignment) {
+    public int eval(Map<String, Integer> assignment) {
         return value;
     }
 }

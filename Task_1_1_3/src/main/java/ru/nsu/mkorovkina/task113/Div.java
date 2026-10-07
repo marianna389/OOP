@@ -1,5 +1,7 @@
 package ru.nsu.mkorovkina.task113;
 
+import java.util.Map;
+
 /**
  * Division of two mathematical expressions.
  */
@@ -13,15 +15,13 @@ public class Div extends Expression {
     }
 
     /**
-     * Prints the division of two expressions (exp/exp).
+     * Returns the division of two expressions as a string.
+     *
+     * @return string in the format (exp/exp)
      */
     @Override
-    public void print() {
-        System.out.print("(");
-        arg1.print();
-        System.out.print("/");
-        arg2.print();
-        System.out.print(")");
+    public String toString() {
+        return String.format("(%s/%s)", arg1, arg2);
     }
 
     /**
@@ -40,11 +40,15 @@ public class Div extends Expression {
     /**
      * Evaluates the value of the expression as the quotient of the values of two sub-expressions.
      *
-     * @param varAssignment assignment of values to all variables
+     * @param assignment assignment of values to all variables
      * @return result of the evaluation
      */
     @Override
-    public int eval(String varAssignment) {
-        return arg1.eval(varAssignment) / arg2.eval(varAssignment);
+    public int eval(Map<String, Integer> assignment) {
+        int arg2Value = arg2.eval(assignment);
+        if (arg2Value == 0) {
+            throw new ArithmeticException("Division by zero");
+        }
+        return arg1.eval(assignment) / arg2Value;
     }
 }

@@ -1,5 +1,7 @@
 package ru.nsu.mkorovkina.task113;
 
+import java.util.Map;
+
 /**
  * Variable.
  */
@@ -11,11 +13,13 @@ public class Variable extends Expression {
     }
 
     /**
-     * Prints the variable.
+     * Returns the name of the variable.
+     *
+     * @return string containing the name
      */
     @Override
-    public void print() {
-        System.out.print(name);
+    public String toString() {
+        return name;
     }
 
     /**
@@ -36,21 +40,11 @@ public class Variable extends Expression {
     /**
      * Evaluates the value of a variable by finding it in the assignment.
      *
-     * @param varAssignment assignment of values to all variables
+     * @param assignment assignment of values to all variables
      * @return value of the variable
-     * @throws IllegalArgumentException if the variable is not found in the assignment
      */
     @Override
-    public int eval(String varAssignment) {
-        String[] vars = varAssignment.split(";");
-        for (String var : vars) {
-            String[] pair = var.split("=");
-            String varWithoutSpaces = pair[0].replace(" ", "");
-            if (name.equals(varWithoutSpaces)) {
-                String valWithoutSpaces = pair[1].replace(" ", "");
-                return Integer.parseInt(valWithoutSpaces);
-            }
-        }
-        throw new IllegalArgumentException(String.format("Variable %s not found", name));
+    public int eval(Map<String, Integer> assignment) {
+        return assignment.get(name);
     }
 }
