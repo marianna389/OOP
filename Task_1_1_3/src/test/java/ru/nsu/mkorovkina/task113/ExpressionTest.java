@@ -16,7 +16,7 @@ class ExpressionTest {
     void testToString() {
         Expression e = new Add(new Sub(new Number(2), new Mul(new Variable("x"),
                     new Variable("y"))), new Div(new Div(new Number(27),
-                    new Variable("xy")), new Number(5)));
+                        new Variable("xy")), new Number(5)));
         assertEquals("((2-(x*y))+((27/xy)/5))", e.toString());
     }
 
