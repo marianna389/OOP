@@ -43,11 +43,11 @@ public class IncidenceMatrix<V> implements Graph<V> {
         if (vertexToIndex.containsKey(vertex)) {
             return false;
         }
-        int edgeCount = indexToEdge.size();
         int vertexCount = indexToVertex.size();
         vertexToIndex.put(vertex, vertexCount);
         indexToVertex.put(vertexCount, vertex);
         matrix.add(new ArrayList<>());
+        int edgeCount = indexToEdge.size();
         for (int i = 0; i < edgeCount; i++) {
             matrix.get(vertexCount).add(0);
         }
