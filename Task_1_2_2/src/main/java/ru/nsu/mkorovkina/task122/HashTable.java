@@ -94,7 +94,7 @@ public class HashTable<K, V> implements Iterable<Map.Entry<K, V>> {
             resize();
         }
         int h = hash(key);
-        int index = h % (buckets.length);
+        int index = getIndex(h, buckets.length);
         for (Node<K, V> curNode = buckets[index]; curNode != null; curNode = curNode.nextNode) {
             if (h == curNode.hash && Objects.equals(key, curNode.key)) {
                 return false;
@@ -114,7 +114,7 @@ public class HashTable<K, V> implements Iterable<Map.Entry<K, V>> {
             Node<K, V> curNode = bucket;
             while (curNode != null) {
                 Node<K, V> nextNode = curNode.nextNode;
-                int index = curNode.hash % (newBuckets.length);
+                int index = getIndex(curNode.hash, newBuckets.length);
                 curNode.nextNode = newBuckets[index];
                 newBuckets[index] = curNode;
                 curNode = nextNode;
@@ -131,7 +131,7 @@ public class HashTable<K, V> implements Iterable<Map.Entry<K, V>> {
      */
     public boolean remove(K key) {
         int h = hash(key);
-        int index = h % (buckets.length);
+        int index = getIndex(h, buckets.length);
         Node<K, V> prevNode = null;
         for (Node<K, V> curNode = buckets[index]; curNode != null; curNode = curNode.nextNode) {
             if (h == curNode.hash && Objects.equals(key, curNode.key)) {
@@ -157,7 +157,7 @@ public class HashTable<K, V> implements Iterable<Map.Entry<K, V>> {
      */
     public V get(K key) {
         int h = hash(key);
-        int index = h % (buckets.length);
+        int index = getIndex(h, buckets.length);
         for (Node<K, V> curNode = buckets[index]; curNode != null; curNode = curNode.nextNode) {
             if (h == curNode.hash && Objects.equals(key, curNode.key)) {
                 return curNode.value;
@@ -175,7 +175,7 @@ public class HashTable<K, V> implements Iterable<Map.Entry<K, V>> {
      */
     public boolean replace(K key, V value) {
         int h = hash(key);
-        int index = h % (buckets.length);
+        int index = getIndex(h, buckets.length);
         for (Node<K, V> curNode = buckets[index]; curNode != null; curNode = curNode.nextNode) {
             if (h == curNode.hash && Objects.equals(key, curNode.key)) {
                 curNode.value = value;
@@ -194,7 +194,7 @@ public class HashTable<K, V> implements Iterable<Map.Entry<K, V>> {
      */
     public boolean contains(K key, V value) {
         int h = hash(key);
-        int index = h % (buckets.length);
+        int index = getIndex(h, buckets.length);
         for (Node<K, V> curNode = buckets[index]; curNode != null; curNode = curNode.nextNode) {
             if (h == curNode.hash && Objects.equals(key, curNode.key)
                     && Objects.equals(value, curNode.value)) {
@@ -213,6 +213,14 @@ public class HashTable<K, V> implements Iterable<Map.Entry<K, V>> {
             h = tmp ^ (tmp >>> 16);
         }
         return h;
+    }
+
+    private int getIndex(int hash, int capacity) {
+        int index = hash % capacity;
+        if (index < 0) {
+            index += capacity;
+        }
+        return index;
     }
 
     /**
