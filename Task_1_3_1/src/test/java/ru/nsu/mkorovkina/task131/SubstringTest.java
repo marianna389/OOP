@@ -78,19 +78,19 @@ class SubstringTest {
 
     @Test
     void hugeFileTest() throws IOException {
-        Path p = tempDir.resolve("huge.txt");
-        //т.к BufferedWriter работает с char, файл будет на 18ГБ
-        long total = 9L * 1024 * 1024 * 1024;
         int arrSize = 1024 * 1024;
-        long arrCount = total / arrSize;
         char[] arr = new char[arrSize];
         arr[0] = 'б';
         arr[1] = 'р';
         Arrays.fill(arr, 2, arrSize, 'а');
+        //т.к BufferedWriter работает с char, файл будет на 18ГБ
+        long total = 9L * 1024 * 1024 * 1024;
+        long arrCount = total / arrSize;
         List<Long> pos = new ArrayList<>();
         for (long i = 0; i < arrCount; i++) {
             pos.add(i * arrSize);
         }
+        Path p = tempDir.resolve("huge.txt");
         try {
             try (BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(
                     new FileOutputStream(p.toFile()), StandardCharsets.UTF_8),
