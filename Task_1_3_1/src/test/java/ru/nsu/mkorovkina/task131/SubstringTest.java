@@ -83,8 +83,7 @@ class SubstringTest {
         arr[0] = 'б';
         arr[1] = 'р';
         Arrays.fill(arr, 2, arrSize, 'а');
-        //т.к BufferedWriter работает с char, файл будет на 18ГБ
-        long total = 9L * 1024 * 1024 * 1024;
+        long total = Runtime.getRuntime().maxMemory() * 2;
         long arrCount = total / arrSize;
         List<Long> pos = new ArrayList<>();
         for (long i = 0; i < arrCount; i++) {
