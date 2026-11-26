@@ -55,13 +55,13 @@ public class RecordBook {
             return false;
         }
         return semesterList.stream()
-                .filter(s -> (s.getNumber() == currentSemester ||
-                        s.getNumber() == currentSemester - 1))
+                .filter(s -> (s.getNumber() == currentSemester
+                        || s.getNumber() == currentSemester - 1))
                 .map(Semester::getSubjectList)
                 .flatMap(List::stream)
-                .noneMatch(s -> (s.getGrade() == Grade.NOT_PASSED ||
-                        s.getGrade() == Grade.UNSATISFACTORY || (s.getControlType() ==
-                        ControlType.EXAM && s.getGrade() == Grade.SATISFACTORY)));
+                .noneMatch(s -> (s.getGrade() == Grade.NOT_PASSED
+                        || s.getGrade() == Grade.UNSATISFACTORY || (s.getControlType()
+                        == ControlType.EXAM && s.getGrade() == Grade.SATISFACTORY)));
     }
 
     /**
@@ -78,8 +78,8 @@ public class RecordBook {
                 .filter(s -> s.getNumber() == currentSemester)
                 .map(Semester::getSubjectList)
                 .flatMap(List::stream)
-                .allMatch(s -> s.getGrade() == Grade.EXCELLENT ||
-                        s.getGrade() == Grade.PASSED || s.getGrade() == null);
+                .allMatch(s -> s.getGrade() == Grade.EXCELLENT
+                        || s.getGrade() == Grade.PASSED || s.getGrade() == null);
     }
 
     /**
