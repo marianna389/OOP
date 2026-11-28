@@ -120,6 +120,25 @@ public class RecordBook {
         return percent >= 0.75;
     }
 
+    /**
+     * Assigns a grade to a subject in the particular semester.
+     *
+     * @param semester semester number
+     * @param subject subject name
+     * @param grade assigned grade
+     * @throws IllegalArgumentException if the subject wasn't found
+     */
+    public void setSemesterGrade(int semester, String subject, Grade grade) {
+        semesterList.stream()
+                .filter(s -> s.getNumber() == semester)
+                .map(Semester::getSubjectList)
+                .flatMap(List::stream)
+                .filter(s -> s.getName().equals(subject))
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("Subject not found"))
+                .setGrade(grade);
+    }
+
     public void setDiplomaGrade(Grade grade) {
         diplomaGrade = grade;
     }

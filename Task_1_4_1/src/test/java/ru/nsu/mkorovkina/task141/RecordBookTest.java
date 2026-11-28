@@ -29,7 +29,7 @@ class RecordBookTest {
                 semesterList);
         recordBook.nextSemester();
         assertEquals(3.6, recordBook.averageGrade());
-        semester2.getSubjectList().get(1).setGrade(Grade.SATISFACTORY);
+        recordBook.setSemesterGrade(2, "Discrete mathematics", Grade.SATISFACTORY);
         assertEquals(3.5, recordBook.averageGrade());
         Semester semester = new Semester(1, List.of(
                 new Subject("Mathematical analysis", ControlType.EXAM, null),
@@ -63,16 +63,16 @@ class RecordBookTest {
         assertFalse(recordBook.transferToBudget());
         recordBook.nextSemester();
         assertTrue(recordBook.transferToBudget());
-        semester2.getSubjectList().get(0).setGrade(Grade.UNSATISFACTORY);
+        recordBook.setSemesterGrade(2, "Mathematical analysis", Grade.UNSATISFACTORY);
         assertFalse(recordBook.transferToBudget());
-        semester2.getSubjectList().get(0).setGrade(Grade.GOOD);
-        semester2.getSubjectList().get(1).setGrade(Grade.SATISFACTORY);
+        recordBook.setSemesterGrade(2, "Mathematical analysis", Grade.GOOD);
+        recordBook.setSemesterGrade(2, "Discrete mathematics", Grade.SATISFACTORY);
         assertFalse(recordBook.transferToBudget());
-        semester2.getSubjectList().get(1).setGrade(Grade.GOOD);
+        recordBook.setSemesterGrade(2, "Discrete mathematics", Grade.GOOD);
         assertTrue(recordBook.transferToBudget());
-        semester2.getSubjectList().get(3).setGrade(Grade.NOT_PASSED);
+        recordBook.setSemesterGrade(2, "Physical education", Grade.NOT_PASSED);
         assertFalse(recordBook.transferToBudget());
-        semester2.getSubjectList().get(3).setGrade(Grade.PASSED);
+        recordBook.setSemesterGrade(2, "Physical education", Grade.PASSED);
         assertTrue(recordBook.transferToBudget());
         recordBook.setEducationType(EducationType.BUDGET);
         assertFalse(recordBook.transferToBudget());
@@ -100,16 +100,16 @@ class RecordBookTest {
         recordBook.setEducationType(EducationType.BUDGET);
         assertTrue(recordBook.increasedScholarship());
         recordBook.nextSemester();
-        semester2.getSubjectList().get(0).setGrade(Grade.EXCELLENT);
-        semester2.getSubjectList().get(1).setGrade(Grade.EXCELLENT);
+        recordBook.setSemesterGrade(2, "Mathematical analysis", Grade.EXCELLENT);
+        recordBook.setSemesterGrade(2, "Discrete mathematics", Grade.EXCELLENT);
         assertTrue(recordBook.increasedScholarship());
-        semester2.getSubjectList().get(2).setGrade(Grade.GOOD);
+        recordBook.setSemesterGrade(2, "Imperative programming", Grade.GOOD);
         assertFalse(recordBook.increasedScholarship());
-        semester2.getSubjectList().get(2).setGrade(Grade.EXCELLENT);
+        recordBook.setSemesterGrade(2, "Imperative programming", Grade.EXCELLENT);
         assertTrue(recordBook.increasedScholarship());
-        semester2.getSubjectList().get(3).setGrade(Grade.NOT_PASSED);
+        recordBook.setSemesterGrade(2, "Physical education", Grade.NOT_PASSED);
         assertFalse(recordBook.increasedScholarship());
-        semester2.getSubjectList().get(3).setGrade(Grade.PASSED);
+        recordBook.setSemesterGrade(2, "Physical education", Grade.PASSED);
         assertTrue(recordBook.increasedScholarship());
     }
 
@@ -138,19 +138,19 @@ class RecordBookTest {
                 semesterList);
         recordBook.nextSemester();
         assertTrue(recordBook.redDiploma());
-        semester2.getSubjectList().get(3).setGrade(Grade.NOT_PASSED);
+        recordBook.setSemesterGrade(2, "Physical education", Grade.NOT_PASSED);
         assertFalse(recordBook.redDiploma());
-        semester2.getSubjectList().get(3).setGrade(Grade.PASSED);
+        recordBook.setSemesterGrade(2, "Physical education", Grade.PASSED);
         recordBook.nextSemester();
-        semester3.getSubjectList().get(0).setGrade(Grade.EXCELLENT);
-        semester3.getSubjectList().get(1).setGrade(Grade.GOOD);
+        recordBook.setSemesterGrade(3, "Models of computation", Grade.EXCELLENT);
+        recordBook.setSemesterGrade(3, "Introduction to AI", Grade.GOOD);
         assertFalse(recordBook.redDiploma());
-        semester3.getSubjectList().get(1).setGrade(Grade.EXCELLENT);
+        recordBook.setSemesterGrade(3, "Introduction to AI", Grade.EXCELLENT);
         assertTrue(recordBook.redDiploma());
         recordBook.setDiplomaGrade(Grade.GOOD);
         assertFalse(recordBook.redDiploma());
         recordBook.setDiplomaGrade(Grade.EXCELLENT);
-        semester3.getSubjectList().get(2).setGrade(Grade.SATISFACTORY);
+        recordBook.setSemesterGrade(3, "Object-oriented programming", Grade.SATISFACTORY);
         assertFalse(recordBook.redDiploma());
     }
 
@@ -206,21 +206,21 @@ class RecordBookTest {
         assertTrue(recordBook.transferToBudget());
         recordBook.setEducationType(EducationType.BUDGET);
         assertFalse(recordBook.increasedScholarship());
-        semester1.getSubjectList().get(2).setGrade(Grade.EXCELLENT);
-        semester2.getSubjectList().get(2).setGrade(Grade.EXCELLENT);
+        recordBook.setSemesterGrade(1, "Imperative programming", Grade.EXCELLENT);
+        recordBook.setSemesterGrade(2, "Imperative programming", Grade.EXCELLENT);
         assertTrue(recordBook.increasedScholarship());
         assertTrue(recordBook.redDiploma());
-        semester2.getSubjectList().get(1).setGrade(Grade.GOOD);
-        semester2.getSubjectList().get(2).setGrade(Grade.GOOD);
+        recordBook.setSemesterGrade(2, "Discrete mathematics", Grade.GOOD);
+        recordBook.setSemesterGrade(2, "Imperative programming", Grade.GOOD);
         recordBook.nextSemester();
-        semester3.getSubjectList().get(0).setGrade(Grade.EXCELLENT);
-        semester3.getSubjectList().get(1).setGrade(Grade.GOOD);
-        semester3.getSubjectList().get(2).setGrade(Grade.EXCELLENT);
+        recordBook.setSemesterGrade(3, "Models of computation", Grade.EXCELLENT);
+        recordBook.setSemesterGrade(3, "Introduction to AI", Grade.GOOD);
+        recordBook.setSemesterGrade(3, "Object-oriented programming", Grade.EXCELLENT);
         recordBook.nextSemester();
-        semester4.getSubjectList().get(0).setGrade(Grade.GOOD);
-        semester4.getSubjectList().get(1).setGrade(Grade.GOOD);
+        recordBook.setSemesterGrade(4, "Models of computation", Grade.GOOD);
+        recordBook.setSemesterGrade(4, "Theory of concurrency", Grade.GOOD);
         assertFalse(recordBook.redDiploma());
-        semester4.getSubjectList().get(1).setGrade(Grade.EXCELLENT);
+        recordBook.setSemesterGrade(4, "Theory of concurrency", Grade.EXCELLENT);
         assertTrue(recordBook.redDiploma());
         recordBook.setDiplomaGrade(Grade.GOOD);
         assertFalse(recordBook.redDiploma());
