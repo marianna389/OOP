@@ -60,6 +60,7 @@ loadScripts(document, 'script');</script>
 <li><a href="#transferToBudget()" tabindex="0">transferToBudget()</a></li>
 <li><a href="#increasedScholarship()" tabindex="0">increasedScholarship()</a></li>
 <li><a href="#redDiploma()" tabindex="0">redDiploma()</a></li>
+<li><a href="#setSemesterGrade(int,java.lang.String,ru.nsu.mkorovkina.task141.Grade)" tabindex="0">setSemesterGrade(int, String, Grade)</a></li>
 <li><a href="#setDiplomaGrade(ru.nsu.mkorovkina.task141.Grade)" tabindex="0">setDiplomaGrade(Grade)</a></li>
 <li><a href="#nextSemester()" tabindex="0">nextSemester()</a></li>
 <li><a href="#setEducationType(ru.nsu.mkorovkina.task141.EducationType)" tabindex="0">setEducationType(EducationType)</a></li>
@@ -125,9 +126,16 @@ based on the current semester.</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setEducationType(ru.nsu.mkorovkina.task141.EducationType)" class="member-name-link">setEducationType</a><wbr>(<a href="EducationType.html" title="enum class in ru.nsu.mkorovkina.task141">EducationType</a>&nbsp;newEducationType)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#transferToBudget()" class="member-name-link">transferToBudget</a>()</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setSemesterGrade(int,java.lang.String,ru.nsu.mkorovkina.task141.Grade)" class="member-name-link">setSemesterGrade</a><wbr>(int&nbsp;semester,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;subject,
+ <a href="Grade.html" title="enum class in ru.nsu.mkorovkina.task141">Grade</a>&nbsp;grade)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Assigns a grade to a subject in the particular semester.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#transferToBudget()" class="member-name-link">transferToBudget</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Predicts whether the student can transfer to state-funded education
 based on the current and previous semesters.</div>
 </div>
@@ -198,6 +206,25 @@ based on the current semester.</div>
 <dl class="notes">
 <dt>Returns:</dt>
 <dd>true if this is possible, otherwise false</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setSemesterGrade(int,java.lang.String,ru.nsu.mkorovkina.task141.Grade)">
+<h3>setSemesterGrade</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setSemesterGrade</span><wbr><span class="parameters">(int&nbsp;semester,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;subject,
+ <a href="Grade.html" title="enum class in ru.nsu.mkorovkina.task141">Grade</a>&nbsp;grade)</span></div>
+<div class="block">Assigns a grade to a subject in the particular semester.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>semester</code> - semester number</dd>
+<dd><code>subject</code> - subject name</dd>
+<dd><code>grade</code> - assigned grade</dd>
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/IllegalArgumentException.html" title="class or interface in java.lang" class="external-link">IllegalArgumentException</a></code> - if the subject wasn't found</dd>
 </dl>
 </div>
 </section>
